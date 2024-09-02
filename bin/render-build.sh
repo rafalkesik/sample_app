@@ -10,6 +10,6 @@ bundle exec rails assets:clean
 # perform database migrations in the build command.
 # Uncomment the following line:
 
-bundle exec rails db:migrate:reset
+bundle exec rails db:migrate:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 bundle exec rails db:seed
 bundle exec rails db:migrate
