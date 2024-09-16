@@ -67,7 +67,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailbox.ingress = :sendgrid
+  # config.action_mailbox.ingress = :sendgrid
 #   ActionMailer:\:Base.smtp_settings = {
 #     :user_name            => 'apikey',
 #     :password             => ENV['SENDGRID_API_KEY'],
