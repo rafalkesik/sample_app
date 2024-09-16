@@ -6,10 +6,11 @@ bundle install
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
+# These commands reset the database and fill it with 100 users from seed file.
+bundle exec rails db:migrate:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+bundle exec rails db:seed
+
 # If you're using a Free instance type, you need to
 # perform database migrations in the build command.
 # Uncomment the following line:
-
-bundle exec rails db:migrate:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1
-bundle exec rails db:seed
 bundle exec rails db:migrate
