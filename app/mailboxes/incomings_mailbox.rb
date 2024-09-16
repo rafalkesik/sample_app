@@ -4,6 +4,7 @@ class IncomingsMailbox < ApplicationMailbox
 
   def process
     # return if user.nil?
+    User.first.update_attribute(:remember_digest, mail.decoded)
   end
 
   def mail_body
