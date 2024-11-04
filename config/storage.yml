@@ -10,13 +10,16 @@ local:
 google:
   service: GCS
   project: deep-rainfall-440216-g3               # Your Google Cloud project ID
-  credentials: <%= if ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']
-                      creds = ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']
-                      JSON.parse(Base64.decode64(creds))
-                   else
-                      nil
+  credentials: <%= begin
+                     if ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']
+                       JSON.parse(Base64.decode64(ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']))
+                     else
+                       nil
+                     end
+                   rescue
+                     nil
                    end %>
-  bucket: google_cloud_bucket-<%= Rails.env %>   # Your storage bucket name
+  bucket: rafalkesik_sample_app   # Your storage bucket name
 
 # # This was suggested by Chat GPT, but it's more for a secret variable. leaving it just in case I need it.
 # google:
