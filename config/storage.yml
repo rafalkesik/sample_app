@@ -11,15 +11,28 @@ google:
   service: GCS
   project: deep-rainfall-440216-g3               # Your Google Cloud project ID
   credentials: <%= if ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']
-                      Tempfile.create('google_keyfile') do |file|
-                        sec_file = ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']
-                        file.write(Base64.decode64(sec_file))
-                        file.path 
-                      end
+                      creds = ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']
+                      JSON.parse(Base64.decode64(creds))
                    else
                       nil
                    end %>
   bucket: google_cloud_bucket-<%= Rails.env %>   # Your storage bucket name
+
+# # This was suggested by Chat GPT, but it's more for a secret variable. leaving it just in case I need it.
+# google:
+#   service: GCS
+#   project: deep-rainfall-440216-g3               # Your Google Cloud project ID
+#   credentials: <%= if ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']
+#                       Tempfile.create('google_keyfile') do |file|
+#                         sec_file = ENV['GOOGLE_CLOUD_KEYFILE_JSON_BASE64']
+#                         file.write(Base64.decode64(sec_file))
+#                         file.path 
+#                       end
+#                    else
+#                       nil
+#                    end %>
+#   bucket: google_cloud_bucket-<%= Rails.env %>   # Your storage bucket name
+
 
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
