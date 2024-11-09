@@ -56,7 +56,7 @@ class MiropostSidebarTest < MicropostInterface
   end
 
   test "should pluralize correctly for 0 microposts" do
-    log_in_as (users(:dwight))
+    log_in_as (users(:mallory))
     get root_path
     assert_select 'span', text: "0 microposts"
   end
