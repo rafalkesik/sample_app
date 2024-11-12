@@ -95,7 +95,8 @@ class UserTest < ActiveSupport::TestCase
     end
     # Self posts for users with followers
     dwight.microposts.each do |post_self|
-      assert dwight.feed.include?(post_self)
+      assert       dwight.feed.include?(post_self)
+      assert_equal dwight.feed.distinct, dwight.feed
     end
     # Posts from non-followed users
     archer.microposts.each do |post_unfollowed|
