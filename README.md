@@ -5,7 +5,7 @@ This is the sample application for the
 Learn Web Development with Rails*](https://www.railstutorial.org/)
 by [Michael Hartl](https://www.michaelhartl.com/).
 
-You can view the page on the live web here: [*https://sample-app-yyq0.onrender.com*](https://sample-app-yyq0.onrender.com)
+For now the page is not available on the Live Web. But you can open it locally - instructions below.
 
 ## License
 
